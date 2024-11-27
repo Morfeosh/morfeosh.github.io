@@ -39,6 +39,60 @@
         </iframe>
     </div>
     <!-- TradingView Widget END -->
+<div class="ip-container" id="ip-container">
+        <h2>Tu IP Externa</h2>
+        <p id="ip-address">Cargando...</p>
+        <p class="update-time" id="last-updated">Última actualización: N/A</p>
+    </div>
 
+    <script>
+        // Función para obtener la IP externa desde la API
+        function obtenerIP() {
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    const ipAddress = data.ip;
+                    document.getElementById('ip-address').textContent = ipAddress;
+                    document.getElementById('last-updated').textContent = 'Última actualización: ' + new Date().toLocaleTimeString();
+                })
+                .catch(error => {
+                    console.error('Error al obtener la IP:', error);
+                    document.getElementById('ip-address').textContent = 'Error al obtener la IP';
+                    document.getElementById('last-updated').textContent = 'Última actualización: N/A';
+                });
+        }
+
+        // Obtener la IP al cargar la página
+        obtenerIP();
+
+        // Actualizar la IP cada 5 minutos (300,000 milisegundos)
+        setInterval(obtenerIP, 300000);
+
+        // Función para hacer el contenedor arrastrable
+        const container = document.getElementById('ip-container');
+
+        container.onmousedown = function (e) {
+            e.preventDefault(); // Prevenir la selección de texto o cualquier otro comportamiento
+
+            // Calculamos la posición inicial
+            const offsetX = e.clientX - container.getBoundingClientRect().left;
+            const offsetY = e.clientY - container.getBoundingClientRect().top;
+
+            // Función para mover el contenedor
+            document.onmousemove = function (e) {
+                const x = e.clientX - offsetX;
+                const y = e.clientY - offsetY;
+
+                container.style.left = `${x}px`;
+                container.style.top = `${y}px`;
+            };
+
+            // Cuando se suelta el ratón, terminamos el movimiento
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            };
+        };
+    </script>
 </body>
 </html>
