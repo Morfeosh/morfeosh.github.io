@@ -3,8 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TradingView Widget</title>
+    <title>Mi IP Externa</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            height: 100vh;
+        }
+
+        /* Estilo para el contenedor del gadget */
+        .ip-container {
+            padding: 10px; /* Reducimos el padding */
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            position: fixed; /* Fija el gadget en la pantalla */
+            top: 20px; /* Espacio desde la parte superior */
+            left: 20px; /* Espacio desde la parte izquierda */
+            width: 125px; /* Reducimos el ancho */
+            box-sizing: border-box;
+            z-index: 1000; /* Asegura que esté por encima de otros elementos */
+            cursor: move; /* Cursor de movimiento */
+        }
+
+        .ip-container h2 {
+            font-size: 14px; /* Reducimos el tamaño de la fuente del título */
+            margin-bottom: 5px;
+        }
+
+        .ip-container p {
+            font-size: 14px; /* Reducimos el tamaño de la fuente del contenido */
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .update-time {
+            font-size: 10px; /* Reducimos aún más el tamaño de la fuente para la fecha */
+            color: #777;
+        }
         /* Estilos generales para el contenedor de los widgets */
         .tradingview-widget-container {
             display: flex; /* Usamos flexbox para organizar los widgets en línea */
@@ -23,8 +62,8 @@
 </head>
 <body>
 
-    <!-- TradingView Widget BEGIN -->
-    <div class="tradingview-widget-container">
+     <!-- TradingView Widget BEGIN -->
+     <div class="tradingview-widget-container">
         <iframe src="https://www.tradingview.com/widgetembed/?frameElementId=tradingview_94bda&symbol=BINANCE%3ABTCUSD&interval=D&hidesidetoolbar=1&hidetoptoolbar=1&theme=dark&style=1&timezone=Etc%2FUTC&symboledit=1&saveimage=1&toolbarbg=F1F3F6" 
                 frameborder="0" 
                 allowtransparency="true" 
@@ -39,7 +78,7 @@
         </iframe>
     </div>
     <!-- TradingView Widget END -->
-<div class="ip-container" id="ip-container">
+    <div class="ip-container" id="ip-container">
         <h2>Tu IP Externa</h2>
         <p id="ip-address">Cargando...</p>
         <p class="update-time" id="last-updated">Última actualización: N/A</p>
@@ -94,5 +133,6 @@
             };
         };
     </script>
+
 </body>
 </html>
