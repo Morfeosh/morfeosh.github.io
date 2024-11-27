@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradingView Widget</title>
+    <style>
+        /* Estilos generales para el contenedor de los widgets */
+        .tradingview-widget-container {
+            display: flex; /* Usamos flexbox para organizar los widgets en línea */
+            justify-content: space-between; /* Asegura que haya espacio entre los widgets */
+            width: 90vw;  /* Ancho del contenedor (90% del ancho de la ventana) */
+            margin: 0 auto;
+        }
+
+        /* Estilo para los iframes */
+        .tradingview-widget-container iframe {
+            width: 48%;  /* Cada iframe ocupa el 45% del ancho del contenedor */
+            height: 50vh; /* Establece la altura de cada iframe */
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+        <iframe src="https://www.tradingview.com/widgetembed/?frameElementId=tradingview_94bda&symbol=BINANCE%3ABTCUSD&interval=D&hidesidetoolbar=1&hidetoptoolbar=1&theme=dark&style=1&timezone=Etc%2FUTC&symboledit=1&saveimage=1&toolbarbg=F1F3F6" 
+                frameborder="0" 
+                allowtransparency="true" 
+                scrolling="no" 
+                allowfullscreen="true">
+        </iframe>
+        <iframe src="https://www.tradingview.com/widgetembed/?frameElementId=tradingview_94bda&symbol=FX%3AEURUSD&interval=D&hidesidetoolbar=1&hidetoptoolbar=1&theme=dark&style=1&timezone=Etc%2FUTC&symboledit=1&saveimage=1&toolbarbg=F1F3F6" 
+                frameborder="0" 
+                allowtransparency="true" 
+                scrolling="no" 
+                allowfullscreen="true">
+        </iframe>
+    </div>
+    <!-- TradingView Widget END -->
+
+</body>
+</html>
